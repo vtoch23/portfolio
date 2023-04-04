@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block body %}
+       
+        <h1 class="display-4">
+            Lottery
+        </h1>
+        <table width="800" align="center">
+            <tr>
+            <td>
+            <h6>The program takes seven numbers via a form input and stores them as variables. The random module is used to produce 7 random numbers from 1 to 40 for the lottery draw, which is sent to a function along with the list of the user's numbers. The function checks each number against the drawn numbers and returns the number of hits and the matched numbers. They are sent back to the HTML as variables using Jinja syntax. 
+            </h6>
+            </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <p class="medium">
+                        The results will appear at the bottom of the form
+                    </p>
+                </td>
+            </tr>
+          </table>
+        <p class="small">
+            Please enter 7 numbers from 1 to 40
+        </p>
+
+        
+            <div class="container">
+                <form action="/lottery-play" method="post">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-1">
+                            <input type="text" name="number1" class="form-control form-control-sm" placeholder="number 1">
+                        </div>
+                        <div class="col-md-1">
+                            <input type="text" name="number2" class="form-control form-control-sm" placeholder="number 2">
+                        </div>
+                        <div class="col-md-1">
+                            <input type="text" name="number3" class="form-control form-control-sm" placeholder="number 3">
+                        </div>
+                        <div class="col-md-1">
+                            <input type="text" name="number4" class="form-control form-control-sm" placeholder="number 4">
+                        </div>
+                        <div class="col-md-1">
+                            <input type="text" name="number5" class="form-control form-control-sm" placeholder="number 5">
+                        </div>
+                        <div class="col-md-1">
+                            <input type="text" name="number6" class="form-control form-control-sm" placeholder="number 6">
+                        </div>
+                        <div class="col-md-1">
+                            <input type="text" name="number7" class="form-control form-control-sm" placeholder="number 7">
+                        </div>
+                    </div>
+                    <br>
+                    <input value="Check Result" type="submit">
+                </form>
+            </div>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+              </svg>
+
+
+
+
+        <!--
+            <form action="/lottery-play" method="post">
+            <input autocomplete="off" autofocus name="numbers" placeholder="numbers"  type="text">
+            <input value="Check Result"  type="submit">
+        
+        </form>
+    -->
+        <p>
+            <form action = "/" method="get">
+                <button type="submit" class="btn btn-dark">Return Home</button>
+            </form>
+        </p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

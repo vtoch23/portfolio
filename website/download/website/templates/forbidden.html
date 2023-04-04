@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block body %}
+<head>
+        <style>
+            #yellow{
+                background-color: #fffde5;
+                color: black;   
+            }
+            #purple{
+                background-color: #ffd7c6;
+                color: black;   
+            }
+            #blue{
+                background-color: #d9ebff;
+                color: black;   
+            }
+            #white{
+                background-color: white;
+                color: black;   
+            }
+        </style> 
+    </head>
+    <body style="text-align: center" background-color="pink">
+        <h1 class="display-4">
+            Cleaning forbidden characters
+        </h1>
+        <table width="800" align="center">
+            <tr>
+            <td>
+            <h6>The program takes a string from the user's input via a form, then uses a function which checks each character
+                against a group of forbidden characters and finally provides the cleaned up version.</h6>
+            </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <p class="medium">
+                        Please enter a sentence and insert special characters randomly from the following: <strong>!?:,.$%&@<></strong>
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <form action="/forbidden-clean" method="post">
+            <input autocomplete="off" autofocus name="sentence" placeholder="Type in a sentence"  type="text">
+            <input value="Clean up"  type="submit">    
+        </form>
+
+        <p>
+            <form action = "/" method="get">
+                <button type="submit" class="btn btn-dark">Return Home</button>
+            </form>
+        </p>
+
+    </body>
+ {% endblock %}

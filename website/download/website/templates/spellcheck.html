@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+        
+        <h1 class="display-4">
+            Spellchecker
+        </h1>
+        <table width="800" align="center">
+            <tr>
+            <td>
+            <h6> The program takes a string from an input via a form, splits it into a list of words and checks each word against a .txt file which contains a large number of common words. If the word isn't there it marks as an error and then uses difflib to provide suggestions. The misspelled word and close matches are stored in a dictionary and a for loop is used in the HTML with Jinja sytnax to loop through the values of the dictionary.
+            </h6>
+            </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <p class="medium">
+                        The results will appear at the bottom of the form
+                    </p>
+                </td>
+            </tr>
+          </table>
+        <p class="medium">
+            Please type in words and include intentional spelling errors
+        </p>
+    
+        <form action="/spellcheck-done" method="post">
+            <input autocomplete="off" autofocus name="sentence" placeholder="Words"  type="int">
+            <input value="Submit"  type="submit">
+        
+        </form>
+        {% include 'spellcheck-done.html' %}
+
+        <p>
+            <form action = "/" method="get">
+                <button type="submit" class="btn btn-dark">Return Home</button>
+            </form>
+        </p>
+
+
+        
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block body %}   
+<h1 class="display-4">
+  Athlete database
+</h1 > 
+<table width="800" align="center">
+  <tr>
+  <td>
+  <h6>The program asks the user to register a name, age and select a sport, it checks if input is correct and stores the values into a list and subsequently into a dictionary. If input was correct, it loads an additional page at the bottom with the submitted athletes. It then gives the option to search by sport by clicking the sport buttons. If no athletes have been registered with the selected sport, it displays a different message. </h6>
+  </td>
+  </tr>
+  <tr>
+      <td align="center">
+          <p class="small">
+              The results will appear at the bottom of the form
+          </p>
+      </td>
+  </tr>
+</table>
+
+        <p class="text-muted lead">
+            Please enter name, age and sport
+        </p>
+       <table align="center" width = "700">
+            <tr>
+                <td>
+                <br>  
+                    <form action="/test" method="post">
+                        <div class="form-row align-items-center" >
+                          
+                          <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInput">Name</label>
+                            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Name" name = "name">
+                          </div>
+
+                          <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Age</label>
+                              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Age" name = "age">
+                          </div>
+                          <p>
+                          <div class="col-auto">
+                            Select Sport
+                            {% for sport in sports %}
+                            <input type="radio" name="sport" value="{{ sport }}"> <strong>{{ sport }}</strong></input><!--because they all have the same name, they are mutually exclusive-->
+                            {% endfor %}
+                          </div>
+                        </p> 
+
+                          <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-2">Register</button>
+                          </div>
+
+                        </div>
+                      
+                      </form>
+
+                        
+                        {% include "names-final.html" %}
+
+                        <!--<p>
+                          <form action = "/search" method="post">
+                            Search by Sport
+                            <div class="col-auto">
+                              <label class="sr-only" for="inlineFormInput">Enter Sport</label>
+                              <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Sport" name = "sport2">
+                            </div>
+                              <button type="submit" class="btn btn-dark mb-2">Search</button>
+                          </form>
+                      </p>-->
+
+                      
+                       <div class="bg-light p-2"> <strong>Search by Sport</strong>  <br>
+                        <p></p>
+                        <form action = "/search" method="post" class="bg-light">
+                        {% for sport in sports %}
+                        <button  type="submit" name="sport2" value="{{ sport }}"> <strong>{{ sport }}</strong></button> 
+                        {% endfor %}
+                        </form>
+
+                        <br>
+                        {% include "search_registrants.html" %}
+                        </div>
+                        
+                        <p>
+                        <form action = "/" method="get">
+                            <button type="submit" class="btn btn-dark">Return Home</button>
+                        </form>
+                      </p>
+                    </td>
+                  </tr>
+                  </table>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  
+        {% endblock %}

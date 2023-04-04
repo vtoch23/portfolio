@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+        Did you mean to type in<br>
+         <strong>{{ filtered }}</strong>?
+        
+        <p>
+            <form action = "/forbidden" method="get">
+                <input type="submit" value="Try again">  
+            </form>
+        </p>
+
+        <p>
+            <form action = "/" method="get">
+                <button type="submit" class="btn btn-dark">Return Home</button>
+            </form>
+        </p>
+{% endblock %}

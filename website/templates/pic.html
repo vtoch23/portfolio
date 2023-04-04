@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h6 class="display-4">
+    Valid Personal Identification Code
+</h6>
+<div class="d-flex justify-content-center">
+<table width="750" style="align-items: left;"> 
+    <tr>
+        <td>
+<medium class="text-muted lead">
+    This program validates a Finnish Personal Identity Codes (PIC)
+</medium><br>
+</td>
+</tr>
+<tr>
+    <td>
+<div >
+   
+<small width="800"> Finnish PICs follow the format <strong>ddmmyyXyyyz</strong>, where <strong>ddmmyy</strong> contains the date of birth, <strong>X</strong> is the marker for century, <strong>yyy</strong> is the personal identifier and <strong>z</strong> is a control character.</small><br>
+</td>
+</tr>
+<tr>
+    <td>
+    <small><strong>The program will check the validity by <strong>these three criteria</strong>:</strong></small><br>
+</td>
+</tr>  
+<tr>
+    <td>
+    <small>The first half of the code is a <strong>valid, existing date</strong> in the format ddmmyy.</small><br>
+        <small>The century marker is either <strong>+</strong> (1800s), <strong>-</strong> (1900s) or <strong>A</strong> (2000s).</small><br>
+            <small>The control character is valid.</small><br>
+                <small>The control character is calculated by taking the nine-digit number created by the <strong>date of birth</strong> and the <strong>personal identifier</strong>, dividing this by 31, and selecting the character at the index specified by the remainder from the string 0123456789ABCDEFHJKLMNPRSTUVWXY. For example, if the remainder was 12, the control character would be C</small><br>
+                <small>(This is the current system of checking valid PICs in Finland)</small><br>
+                <small> Here are some valid PICs: 230827-906F, 120488+246L, 310823A9877.</small>
+            </div>
+
+        </td>
+        </tr>            
+        </table>    
+    </div>    
+    <p></p>
+
+<form action="/pic_check" method="post" id="main_width mytable contactForm1" class="bg-light">
+    <br>
+    <div class="mb-2 text-center" id="mytable">
+        <label class="form-label text-left">Please enter a PIC</label>
+        <input type="int" name="code" class="form-control" id="exampleFormControlInput1" placeholder="Personal Identification Code">
+        <br>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </div>
+
+</form>
+    
+    {% include 'pic-valid.html' %}
+ 
+
+
+<p>
+<form action="/" method="get">
+    <button type="submit" class="btn btn-dark">Return Home</button>
+</form>
+</p>
+
+
+{% endblock %}
