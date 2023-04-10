@@ -1,1 +1,1 @@
-All python files which contain the functionality of my portfolio projects. 
+All files which contain the functionality of my portfolio website and projects. 
